@@ -6,6 +6,8 @@ A simple ruby gem that will auto-generate a website so that clients can review f
 To run simply create a *.rb file with the following code:
 (paths are relative to this file)
 
+```ruby
+
 require 'review_site_builder'
 
 ReviewSiteBuilder::Publish.run!(
@@ -36,3 +38,5 @@ ReviewSiteBuilder::Publish.run!(
   ],
   :dest => "../review"
 )
+
+```

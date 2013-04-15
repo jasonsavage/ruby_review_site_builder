@@ -1,0 +1,15 @@
+<div id="image-container">
+	
+	<a href="javascript:openPopup('${url}', ${filewidth}, ${fileheight})">Click to View Link</a>
+			
+	<script type="text/javascript">
+	
+		function openPopup(url, width, height)
+		{
+			var win = window.open(url, "mywindow", "status=0,toolbar=0,location=0,menubar=0,directories=0,resizable=1,height=" + (height+10) + ",width="+ (width+10));
+			if(!win) alert("Your browser may have blocked this pop-up window!");
+		}
+	
+	</script>
+	
+</div>

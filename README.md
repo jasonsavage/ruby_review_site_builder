@@ -11,28 +11,28 @@ To run simply create a *.rb file with the following code:
 require 'review_site_builder'
 
 ReviewSiteBuilder::Publish.run!(
-  :client => "Honey Baked",
+  :client => "Company Name",
   :project => "Flash Banners",
-  :logo => "C:\\Users\\jsavage\\Desktop\\Client Logos\\honeybaked.png",
+  :logo => "Client Logos\\company_logo.png",
   :files => [
 	  {
-		:group => "MDay Ham Concept",
+		:group => "Project Concept 1",
 		:comps => [
-			"120x600_MDayHam_banner.swf",
-			"160x600_MDayHam_banner.swf",
-			"300x250_MDayHam_banner.swf",
-			"468x60_MDayHam_banner.swf",
-			"728x90_MDayHam_banner.swf"
+			"120x600_banner.swf",
+			"160x600_banner.swf",
+			"300x250_banner.swf",
+			"468x60_banner.swf",
+			"728x90_banner.swf"
 		]
 	  },
 	  {
-		:group => "MDay Ham Backup JPGs",
+		:group => "Project Concept 1 Backup JPGs",
 		:comps => [
-			"120x600_MDayHam_banner.jpg",
-			"160x600_MDayHam_banner.jpg",
-			"300x250_MDayHam_banner.jpg",
-			"468x60_MDayHam_banner.jpg",
-			"728x90_MDayHam_banner.jpg"
+			"120x600_banner_backup.jpg",
+			"160x600_banner_backup.jpg",
+			"300x250_banner_backup.jpg",
+			"468x60_banner_backup.jpg",
+			"728x90_banner_backup.jpg"
 		]
 	  }
   ],

@@ -19,6 +19,7 @@ class Builder
 
     :flash        => "templates/includes/flash.html",
     :image        => "templates/includes/image.html",
+    :missing      => "templates/includes/missing.html",
     :project_list => "templates/includes/project_list.html",
     :project_list_item => "templates/includes/list_item.html"
   }
@@ -55,7 +56,7 @@ class Builder
     copy_folder_to_dest(@@folders[:js], 'js', dest);
     puts "- ::copied all js to /js"
     
-    has_logo = (logo != nil and logo.length > 0)
+    has_logo = (logo != nil and logo.length > 0 && File.exists?(logo))
     if has_logo then
       # copy logo to img folder
       FileUtils.mkdir 'img' unless Dir.exist? 'img';
@@ -78,14 +79,21 @@ class Builder
       g.comps.each do |c|
         
         # copy comp to data dir
-        FileUtils.cp_r(c.path, 'data')
-        puts "- ::copied #{c.filename} to /data"
+        begin
+          FileUtils.cp_r(c.path, 'data')
+          puts "- ::copied #{c.filename} to /data"
+        rescue
+          puts "- ::copy failed - file not found #{c.filename}"
+        end
       
         # set comp paths
         c.new_path  = "comp_#{i}.html";
 
         # create comp tmpl
-        if c.is_flash? then
+        if c.is_missing? then
+          tmp_media = Template.new(@@templates[:missing])
+          tmp_media.set_value("filename", c.path)
+        elsif c.is_flash? then
           tmp_media = Template.new(@@templates[:flash])
           tmp_media.set_value("filename", "data/#{c.filename}")
           tmp_media.set_value("filewidth", c.width.to_s)

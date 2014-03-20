@@ -85,6 +85,18 @@ class Builder
         rescue
           puts "- ::copy failed - file not found #{c.filename}"
         end
+        
+        # check comp for second path
+        if c.has_second_path? then
+          tmp = File.basename(c.second_path)
+          #copy second banner to root folder
+          begin
+            FileUtils.cp_r(c.second_path, './')
+            puts "- ::copied #{tmp} to /"
+          rescue
+            puts "- ::copy failed - file not found #{tmp}"
+          end
+        end
       
         # set comp paths
         c.new_path  = "comp_#{i}.html";

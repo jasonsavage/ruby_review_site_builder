@@ -3,12 +3,20 @@ require 'gem/swf'
 
 class CompFile
   
-  attr_reader :name, :filename, :ext, :path, :width, :height
+  attr_reader :name, :filename, :ext, :path, :width, :height, :second_path
   attr_accessor :new_path
   
   def initialize(path)
     
-    @path     = path
+    #add support for polite and expandable banners (allow 2 swf to be specified)
+    if path.include? '|' then
+      tmp = path.split('|')
+      path = tmp.shift 
+      
+      @second_path = File.absolute_path( File.join(File.dirname(path), tmp) )
+    end
+          
+    @path     = File.absolute_path(path)
     @filename = File.basename(@path)
     @ext      = File.extname(@path)
     @name     = File.basename(@path, @ext).gsub(/_/, " ")
@@ -33,5 +41,8 @@ class CompFile
   def is_missing?
     return @missing
   end
- 
+  
+  def has_second_path?
+    return @second_path != nil
+  end
 end

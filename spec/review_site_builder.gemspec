@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'review_site_builder'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.has_rdoc = true
   #s.extra_rdoc_files = ['README', 'LICENSE']
   s.summary = 'Use to generate a basic review site for images and flash banners'

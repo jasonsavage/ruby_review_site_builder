@@ -14,6 +14,8 @@ module ReviewSiteBuilder
       puts "- building site, please wait...           -"
       puts " "
       
+      #TODO: change this to use a yml config file
+      
       # need to figure out how to collect this info
       client   = config[:client]
       project  = config[:project]
@@ -26,8 +28,8 @@ module ReviewSiteBuilder
         # build groups
         g = CompGroup.new(obj[:group])
         obj[:comps].each do |path|
-
-          g.comps << CompFile.new( File.absolute_path(path) )
+          
+          g.comps << CompFile.new( path )
 
         end
 

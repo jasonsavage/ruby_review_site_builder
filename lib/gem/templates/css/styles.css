@@ -28,8 +28,8 @@ header .logo
 	height: 55px;
 	overflow: hidden;
 	text-indent: -9999px; 
-	background: url(http://www.engauge.com/assets/images/logo-engauge.gif) no-repeat;
-	margin-top:10px;
+	background: url('http://www.moxieusa.com/images/graphic/logo_nav.png') no-repeat;
+	margin-top:20px;
 }
 
 header .main-nav

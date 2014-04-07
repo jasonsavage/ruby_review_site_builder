@@ -1,0 +1,21 @@
+
+%header
+    %div.container
+        %a.logo{:href => "http://www.moxieusa.com", :target => "_blank", :title => "Visit MoxieUSA.com"} 
+            %img{:alt => "Welcome to Moxie, a full service, digital creative agency headquartered in Atlanta.",  :src => "img/logo_nav.png"}/
+        
+        %h1=title
+
+        %ul.menu.horz.main-nav
+            %li 
+                %a.home{:href => "index.html"} Home
+            %li 
+                %a{:href => prev_page} Previous
+            %li 
+                %a{:href => next_page} Next
+
+%div.wrapper
+    %section.main
+        %div.media-container
+            =body
+

@@ -1,0 +1,40 @@
+
+%header
+    %div.container
+        %a.logo{:href => "http://www.moxieusa.com", :target => "_blank", :title => "Visit MoxieUSA.com"} 
+            %img{:alt => "Welcome to Moxie, a full service, digital creative agency headquartered in Atlanta.",  :src => "img/logo_nav.png"}/
+
+%div.wrapper
+    %div.client-details.grid
+        %dl.col.span6
+            - if client_name != nil then
+                %dt Client:
+                %dd=client_name
+            - if project_name != nil then
+                %dt Project:
+                %dd=project_name
+
+            %dt Date:
+            %dd=date
+        %div.col.span6.logo     
+            - if logo_path != nil then
+                %img{:src => 'img/' + File.basename(logo_path), :border => "0"}/
+        
+
+    %section.main
+
+        / Project Details 
+        %div.project-details
+            - @sections.each do |sect|
+                %div.project
+                    %h3=sect.title + ':'
+                    %ul
+                        - sect.comps.each do |comp|
+                            %li
+                                %a{:href => comp.page_name}=comp.title
+                
+
+        
+        / End Project Details
+
+

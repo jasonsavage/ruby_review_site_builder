@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+# The command line review_site_builder parser.
+
+# add library to load path
+$LOAD_PATH.push File.expand_path("../lib", File.dirname(__FILE__)) 
+
+require 'review_site_builder'
+
+begin
+  
+  if ARGV.length > 0
+    ReviewSiteBuilder.build! ARGV.first
+  else
+    ReviewSiteBuilder.build!
+  end
+  
+rescue Exception => ex
+  puts ex.message
+  exit
+end

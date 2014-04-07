@@ -1,0 +1,28 @@
+
+client: Test Project
+project: Flash Banners
+logo: src/naturallyDelish_green.png
+
+dest: /review
+src: /src
+
+files:
+- 
+  title: Spoon Close Up Concept Phase 1
+  dir: /Phase 1
+  comps:
+  - 120x600_SpoonCloseUp_banner_shell.swf|120x600_SpoonCloseUp_banner.swf
+  - 120x600_SpoonCloseUp_banner.jpg
+  - 300x250_SpoonCloseUp_banner.swf
+-
+  title: Calendar Concept Phase 1
+  dir: /Phase 2
+  comps:
+  - 500x500_calendar.swf
+  - 500x500_calendar.jpg
+-
+  title: Calendar Concept Phase 2
+  dir: /
+  comps:
+  - 300x250_SpoonCloseUp_banner.swf
+  - 300x250_SpoonCloseUp_banner.jpg

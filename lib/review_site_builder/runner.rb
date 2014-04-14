@@ -23,13 +23,13 @@ module ReviewSiteBuilder
       
       # take config settings and parse them into the correct model for the Runner
       comp_site = CompSite.new( base_path, config )
-    
+      
       #switch file pointer to dest dir
       FileUtils.mkdir(comp_site.dest_path) unless Dir.exists?(comp_site.dest_path)
       FileUtils.cd( comp_site.dest_path );
       
-      #clean out dest
-      dir_cleanup();
+      # clear out destination
+      FileUtils.rm_r(FileUtils.pwd, :force => true)
       
       #move css dir to dest/css
       FileUtils.mkdir('css') unless Dir.exists?('css')
@@ -81,19 +81,6 @@ module ReviewSiteBuilder
   
     end
     
-    
-    def self.dir_cleanup
-      
-      Dir.foreach('./') do |f|
-          if f == '.' or f == '..' then 
-              next
-          elsif File.directory?(f) then 
-              FileUtils.rm_rf(f)
-          else 
-              FileUtils.rm( f )
-          end
-      end
-    end
     
     def self.write_to_dest( comp, dest )
       

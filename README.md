@@ -8,20 +8,20 @@ A simple ruby gem that will auto-generate a website so that clients can review f
 
 The first step is to install the gem from the root of this repo:
 
-~~~sh
+```shell
 gem install ./review_site_builder-0.3.2.gem
-~~~
+```
 
-After the gem is installed, you can run it from the command line by specifying a path to the folder where your config.yml file is or root of your project
+After the gem is installed, you can run it from the command line by specifying a path to the folder where your config.yml file is or just the root of your project.
 
-~~~sh
+```shell
 review_site_builder path/to/project
-~~~
+```
 
 
 ## config.yml Settings
 
-The yaml config file allows you to specifiy what files to use and how to lay them out within the review site. All settings are optional (including the config.yml file itself)
+The yaml config file allows you to specifiy what files to use and how to lay them out within the review site. All settings are optional (including the config.yml file itself).
 
 ```yaml
 client: Test Project
@@ -53,47 +53,37 @@ files:
   - 300x250_banner.jpg
 ```
 
-* [client] - string (optional) 
-	* displays client name on index.html page 
-	* default: client not shown
-* [project] - string (optional) 
-	* displays project name on index.html page 
-	* default: project not shown
-* [logo] - filepath (optional)
-	* path to client logo to be displayed on index.html page (
-	* default: logo not shown
-* [src] - relative filepath (optional)
-	* root path to media files
-	* default: ./src/
-* [dest] - relative filepath (optional)
-	* Where to save generated review site files (
-	* default: ./build/
+### Description
+* **[client]** - string (optional) 
+	* displays client name on index.html page, *default: client not shown*
+* **[project]** - string (optional) 
+	* displays project name on index.html page, *default: project not shown*
+* **[logo]** - filepath (optional)
+	* path to client logo to be displayed on index.html page, *default: logo not shown*
+* **[src]** - relative filepath (optional)
+	* root path to media files, *default: ./src/*
+* **[dest]** - relative filepath (optional)
+	* Where to save generated review site files, *default: ./build/*
 * [files] - array (optional)
-	* list of files or groups of files to display in the review site (
-	* default: all files found in [src], listed in one group called "Project Files"
-* [files > string] - object/string (optional)
+	* list of files or groups of files to display in the review site, *default: all files found in [src], listed in one group called "Project Files"*
+* **[files > string]** - object/string (optional)
 	* file path is added to group called "Project Files"
-* [files > object] - object/string (optional)
-	* [title] - string (optional) 
-		* title of this section 
-		* default: Project Files
-	* [dir] - string (optional)
-		* directory for these files, added to [src] (
-		* default: "" (empty string)
-	* [comps] - string (optional) 
-		* list of files to use for this section (
-		* default: no files selected
-		* NOTE: file names can use the "|" (pipe) symbol to specifiy a related file to add to project (example: expanable banners)
+* **[files > object]** - object/string (optional)
+	* **[title]** - string (optional) 
+		* title of this section, *default: Project Files*
+	* **[dir]** - string (optional)
+		* directory for these files, added to [src], *default: "" (empty string)*
+	* **[comps]** - string (optional) 
+		* list of files to use for this section, *default: no files selected*
+		* **NOTE:** file names can use the "|" (pipe) symbol to specifiy a related file to add to project (example: expanable banners)
 
 
-## Using with Ruby
+## Using within Ruby Project
 
 ```ruby
-
 require 'review_site_builder'
 
 ReviewSiteBuilder.build!("test/example_project/")
-
 ```
 
 ## License

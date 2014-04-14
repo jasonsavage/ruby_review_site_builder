@@ -64,7 +64,7 @@ files:
 	* root path to media files, *default: ./src/*
 * **[dest]** - relative filepath (optional)
 	* Where to save generated review site files, *default: ./build/*
-* [files] - array (optional)
+* **[files]** - array (optional)
 	* list of files or groups of files to display in the review site, *default: all files found in [src], listed in one group called "Project Files"*
 * **[files > string]** - object/string (optional)
 	* file path is added to group called "Project Files"

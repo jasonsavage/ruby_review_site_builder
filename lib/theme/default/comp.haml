@@ -1,0 +1,19 @@
+
+%header
+    %div.container
+        
+        %h1=title
+
+        %ul.menu.horz.main-nav
+            %li 
+                %a.home{:href => "index.html"} Home
+            %li 
+                %a{:href => prev_page} Previous
+            %li 
+                %a{:href => next_page} Next
+
+%div.wrapper
+    %section.main
+        %div.media-container
+            =body
+
